@@ -422,6 +422,15 @@ Delete entry in Repository
 ```php
 $this->repository->delete($id)
 ```
+by or select
+```php
+$datas=$this->repository->scopeQuery(function($query){
+            return $query->
+            where(['level'=>'0'])->
+            orWhere(['level'=>'3'])->
+            orderBy('id','asc');
+        })->all();
+```
 
 ### Create a Criteria
 
